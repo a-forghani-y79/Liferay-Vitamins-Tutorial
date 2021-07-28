@@ -377,5 +377,7 @@ paths:
 در این مرحله با اجرای buildRest  از منوی Gradle کامپوننت ها و endpoint  های تعریف شده ساخته می شوند.
 توجه شود که buildRest را فقط برای ماژول impl اجرا کنید.
 </div>
+
 ```
 Gradle -> modules -> headless-vitamins -> headless-vitamins-impl -> Tasks -> build -> buildRest
+```
