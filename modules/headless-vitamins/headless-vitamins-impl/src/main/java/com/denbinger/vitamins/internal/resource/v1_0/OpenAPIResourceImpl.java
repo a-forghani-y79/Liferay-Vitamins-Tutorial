@@ -66,6 +66,8 @@ public class OpenAPIResourceImpl {
 
 	private final Set<Class<?>> _resourceClasses = new HashSet<Class<?>>() {
 		{
+			add(VitaminResourceImpl.class);
+
 			add(OpenAPIResourceImpl.class);
 		}
 	};
