@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:vitamins:vitamins-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../vitamins-api/src/main/java"
+}
+
+group = "com.denbinger.vitamins"

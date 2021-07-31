@@ -1,0 +1,10 @@
+Bundle-Name: vitamins-api
+Bundle-SymbolicName: com.denbinger.vitamins.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.denbinger.vitamins.exception,\
+	com.denbinger.vitamins.model,\
+	com.denbinger.vitamins.service,\
+	com.denbinger.vitamins.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../vitamins-service/service.xml
