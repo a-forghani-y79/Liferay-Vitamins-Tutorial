@@ -72,17 +72,19 @@ public class VitaminDetailServiceSoap {
 	 * @param value
 	 * @return VitaminDetail: The new instance.
 	 */
-	public static VitaminDetail addVitaminDetail(
-			long persistedVitaminId, int typeCode, String value,
-			ServiceContext serviceContext)
+	public static com.denbinger.vitamins.model.VitaminDetailSoap
+			addVitaminDetail(
+				long persistedVitaminId, int typeCode, String value,
+				com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
 		try {
-			VitaminDetail returnValue =
+			com.denbinger.vitamins.model.VitaminDetail returnValue =
 				VitaminDetailServiceUtil.addVitaminDetail(
 					persistedVitaminId, typeCode, value, serviceContext);
 
-			return returnValue;
+			return com.denbinger.vitamins.model.VitaminDetailSoap.toSoapModel(
+				returnValue);
 		}
 		catch (Exception exception) {
 			_log.error(exception, exception);
@@ -125,14 +127,16 @@ public class VitaminDetailServiceSoap {
 		}
 	}
 
-	public static VitaminDetail deleteVitaminDetail(long vitaminDetailId)
+	public static com.denbinger.vitamins.model.VitaminDetailSoap
+			deleteVitaminDetail(long vitaminDetailId)
 		throws RemoteException {
 
 		try {
-			VitaminDetail returnValue =
+			com.denbinger.vitamins.model.VitaminDetail returnValue =
 				VitaminDetailServiceUtil.deleteVitaminDetail(vitaminDetailId);
 
-			return returnValue;
+			return com.denbinger.vitamins.model.VitaminDetailSoap.toSoapModel(
+				returnValue);
 		}
 		catch (Exception exception) {
 			_log.error(exception, exception);
@@ -141,14 +145,19 @@ public class VitaminDetailServiceSoap {
 		}
 	}
 
-	public static VitaminDetail deleteVitaminDetail(VitaminDetail vitaminDetail)
+	public static com.denbinger.vitamins.model.VitaminDetailSoap
+			deleteVitaminDetail(
+				com.denbinger.vitamins.model.VitaminDetailSoap vitaminDetail)
 		throws RemoteException {
 
 		try {
-			VitaminDetail returnValue =
-				VitaminDetailServiceUtil.deleteVitaminDetail(vitaminDetail);
+			com.denbinger.vitamins.model.VitaminDetail returnValue =
+				VitaminDetailServiceUtil.deleteVitaminDetail(
+					com.denbinger.vitamins.model.impl.VitaminDetailModelImpl.
+						toModel(vitaminDetail));
 
-			return returnValue;
+			return com.denbinger.vitamins.model.VitaminDetailSoap.toSoapModel(
+				returnValue);
 		}
 		catch (Exception exception) {
 			_log.error(exception, exception);
@@ -163,16 +172,17 @@ public class VitaminDetailServiceSoap {
 	 * @param persistedVitaminId
 	 * @return List The list of vitamin details.
 	 */
-	public static List<VitaminDetail> getAllVitaminDetails(
-			long persistedVitaminId)
+	public static com.denbinger.vitamins.model.VitaminDetailSoap[]
+			getAllVitaminDetails(long persistedVitaminId)
 		throws RemoteException {
 
 		try {
-			List<VitaminDetail> returnValue =
-				VitaminDetailServiceUtil.getAllVitaminDetails(
+			java.util.List<com.denbinger.vitamins.model.VitaminDetail>
+				returnValue = VitaminDetailServiceUtil.getAllVitaminDetails(
 					persistedVitaminId);
 
-			return returnValue;
+			return com.denbinger.vitamins.model.VitaminDetailSoap.toSoapModels(
+				returnValue);
 		}
 		catch (Exception exception) {
 			_log.error(exception, exception);
@@ -188,16 +198,17 @@ public class VitaminDetailServiceSoap {
 	 * @param typeCode
 	 * @return List The list of vitamin details.
 	 */
-	public static List<VitaminDetail> getVitaminDetailsByType(
-			long persistedVitaminId, int typeCode)
+	public static com.denbinger.vitamins.model.VitaminDetailSoap[]
+			getVitaminDetailsByType(long persistedVitaminId, int typeCode)
 		throws RemoteException {
 
 		try {
-			List<VitaminDetail> returnValue =
-				VitaminDetailServiceUtil.getVitaminDetailsByType(
+			java.util.List<com.denbinger.vitamins.model.VitaminDetail>
+				returnValue = VitaminDetailServiceUtil.getVitaminDetailsByType(
 					persistedVitaminId, typeCode);
 
-			return returnValue;
+			return com.denbinger.vitamins.model.VitaminDetailSoap.toSoapModels(
+				returnValue);
 		}
 		catch (Exception exception) {
 			_log.error(exception, exception);

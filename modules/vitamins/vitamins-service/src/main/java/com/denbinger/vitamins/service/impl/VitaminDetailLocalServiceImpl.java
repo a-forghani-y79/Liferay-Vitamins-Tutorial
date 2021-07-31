@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import org.osgi.service.component.annotations.Component;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Date;
@@ -176,7 +177,7 @@ public class VitaminDetailLocalServiceImpl
 	 */
 	public List<VitaminDetail> getVitaminDetailsByType(final long persistedVitaminId,
 													   final int typeCode) {
-		return vitaminDetailPersistence.findByPersistedVitaminIdType(persistedVitaminId,
+		return vitaminDetailPersistence.findBypersistedVitaminIdType(persistedVitaminId,
 				typeCode);
 	}
 

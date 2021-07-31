@@ -52,10 +52,11 @@ import com.liferay.portal.kernel.util.MethodKey;
  */
 public class VitaminDetailServiceHttp {
 
-	public static VitaminDetail addVitaminDetail(
+	public static com.denbinger.vitamins.model.VitaminDetail addVitaminDetail(
 			HttpPrincipal httpPrincipal, long persistedVitaminId, int typeCode,
-			String value, ServiceContext serviceContext)
-		throws PortalException {
+			String value,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -71,15 +72,18 @@ public class VitaminDetailServiceHttp {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
 			}
 			catch (Exception exception) {
-				if (exception instanceof PortalException) {
-					throw (PortalException)exception;
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
 				}
 
 				throw new com.liferay.portal.kernel.exception.SystemException(
 					exception);
 			}
 
-			return (VitaminDetail)returnObj;
+			return (com.denbinger.vitamins.model.VitaminDetail)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -146,9 +150,10 @@ public class VitaminDetailServiceHttp {
 		}
 	}
 
-	public static VitaminDetail deleteVitaminDetail(
-			HttpPrincipal httpPrincipal, long vitaminDetailId)
-		throws PortalException {
+	public static com.denbinger.vitamins.model.VitaminDetail
+			deleteVitaminDetail(
+				HttpPrincipal httpPrincipal, long vitaminDetailId)
+		throws com.liferay.portal.kernel.exception.PortalException {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -164,15 +169,18 @@ public class VitaminDetailServiceHttp {
 				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
 			}
 			catch (Exception exception) {
-				if (exception instanceof PortalException) {
-					throw (PortalException)exception;
+				if (exception instanceof
+						com.liferay.portal.kernel.exception.PortalException) {
+
+					throw (com.liferay.portal.kernel.exception.PortalException)
+						exception;
 				}
 
 				throw new com.liferay.portal.kernel.exception.SystemException(
 					exception);
 			}
 
-			return (VitaminDetail)returnObj;
+			return (com.denbinger.vitamins.model.VitaminDetail)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -183,8 +191,10 @@ public class VitaminDetailServiceHttp {
 		}
 	}
 
-	public static VitaminDetail deleteVitaminDetail(
-		HttpPrincipal httpPrincipal, VitaminDetail vitaminDetail) {
+	public static com.denbinger.vitamins.model.VitaminDetail
+		deleteVitaminDetail(
+			HttpPrincipal httpPrincipal,
+			com.denbinger.vitamins.model.VitaminDetail vitaminDetail) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -204,7 +214,7 @@ public class VitaminDetailServiceHttp {
 					exception);
 			}
 
-			return (VitaminDetail)returnObj;
+			return (com.denbinger.vitamins.model.VitaminDetail)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -215,8 +225,9 @@ public class VitaminDetailServiceHttp {
 		}
 	}
 
-	public static List<VitaminDetail> getAllVitaminDetails(
-		HttpPrincipal httpPrincipal, long persistedVitaminId) {
+	public static java.util.List<com.denbinger.vitamins.model.VitaminDetail>
+		getAllVitaminDetails(
+			HttpPrincipal httpPrincipal, long persistedVitaminId) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -236,7 +247,8 @@ public class VitaminDetailServiceHttp {
 					exception);
 			}
 
-			return (List<VitaminDetail>)returnObj;
+			return (java.util.List<com.denbinger.vitamins.model.VitaminDetail>)
+				returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -247,8 +259,10 @@ public class VitaminDetailServiceHttp {
 		}
 	}
 
-	public static List<VitaminDetail> getVitaminDetailsByType(
-		HttpPrincipal httpPrincipal, long persistedVitaminId, int typeCode) {
+	public static java.util.List<com.denbinger.vitamins.model.VitaminDetail>
+		getVitaminDetailsByType(
+			HttpPrincipal httpPrincipal, long persistedVitaminId,
+			int typeCode) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -268,7 +282,8 @@ public class VitaminDetailServiceHttp {
 					exception);
 			}
 
-			return (List<VitaminDetail>)returnObj;
+			return (java.util.List<com.denbinger.vitamins.model.VitaminDetail>)
+				returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException
 					systemException) {
@@ -283,7 +298,10 @@ public class VitaminDetailServiceHttp {
 		VitaminDetailServiceHttp.class);
 
 	private static final Class<?>[] _addVitaminDetailParameterTypes0 =
-		new Class[] {long.class, int.class, String.class, ServiceContext.class};
+		new Class[] {
+			long.class, int.class, String.class,
+			com.liferay.portal.kernel.service.ServiceContext.class
+		};
 	private static final Class<?>[] _deleteAllVitaminDetailsParameterTypes1 =
 		new Class[] {long.class};
 	private static final Class<?>[] _deleteVitaminDetailsByTypeParameterTypes2 =
@@ -291,7 +309,7 @@ public class VitaminDetailServiceHttp {
 	private static final Class<?>[] _deleteVitaminDetailParameterTypes3 =
 		new Class[] {long.class};
 	private static final Class<?>[] _deleteVitaminDetailParameterTypes4 =
-		new Class[] {VitaminDetail.class};
+		new Class[] {com.denbinger.vitamins.model.VitaminDetail.class};
 	private static final Class<?>[] _getAllVitaminDetailsParameterTypes5 =
 		new Class[] {long.class};
 	private static final Class<?>[] _getVitaminDetailsByTypeParameterTypes6 =

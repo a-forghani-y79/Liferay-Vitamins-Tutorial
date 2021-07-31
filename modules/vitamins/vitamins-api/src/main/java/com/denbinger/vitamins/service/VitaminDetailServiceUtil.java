@@ -50,7 +50,7 @@ public class VitaminDetailServiceUtil {
 	 */
 	public static VitaminDetail addVitaminDetail(
 			long persistedVitaminId, int typeCode, String value,
-			ServiceContext serviceContext)
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
 		return getService().addVitaminDetail(

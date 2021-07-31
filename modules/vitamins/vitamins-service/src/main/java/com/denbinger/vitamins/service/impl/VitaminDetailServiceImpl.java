@@ -14,11 +14,16 @@
 
 package com.denbinger.vitamins.service.impl;
 
+import com.denbinger.vitamins.model.VitaminDetail;
 import com.denbinger.vitamins.service.base.VitaminDetailServiceBaseImpl;
 
 import com.liferay.portal.aop.AopService;
 
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
 import org.osgi.service.component.annotations.Component;
+
+import java.util.List;
 
 /**
  * The implementation of the vitamin detail remote service.
