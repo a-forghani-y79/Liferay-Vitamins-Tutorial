@@ -81,7 +81,7 @@ public class PersistedVitaminModelImpl
 		{"userName", Types.VARCHAR}, {"createDate", Types.TIMESTAMP},
 		{"modifiedDate", Types.TIMESTAMP}, {"groupName", Types.VARCHAR},
 		{"articleId", Types.VARCHAR}, {"description", Types.VARCHAR},
-		{"name", Types.VARCHAR}, {"type_", Types.VARCHAR}
+		{"name", Types.VARCHAR}, {"type_", Types.INTEGER}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -101,11 +101,11 @@ public class PersistedVitaminModelImpl
 		TABLE_COLUMNS_MAP.put("articleId", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("type_", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("type_", Types.INTEGER);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table FOO_PersistedVitamin (uuid_ VARCHAR(75) null,persistedVitaminId LONG not null primary key,surrogateId VARCHAR(75) null,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,groupName VARCHAR(75) null,articleId VARCHAR(75) null,description VARCHAR(75) null,name VARCHAR(75) null,type_ VARCHAR(75) null)";
+		"create table FOO_PersistedVitamin (uuid_ VARCHAR(75) null,persistedVitaminId LONG not null primary key,surrogateId VARCHAR(75) null,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,groupName VARCHAR(75) null,articleId VARCHAR(75) null,description VARCHAR(75) null,name VARCHAR(75) null,type_ INTEGER)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table FOO_PersistedVitamin";
@@ -421,7 +421,7 @@ public class PersistedVitaminModelImpl
 		attributeGetterFunctions.put("type", PersistedVitamin::getType);
 		attributeSetterBiConsumers.put(
 			"type",
-			(BiConsumer<PersistedVitamin, String>)PersistedVitamin::setType);
+			(BiConsumer<PersistedVitamin, Integer>)PersistedVitamin::setType);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -729,17 +729,12 @@ public class PersistedVitaminModelImpl
 
 	@JSON
 	@Override
-	public String getType() {
-		if (_type == null) {
-			return "";
-		}
-		else {
-			return _type;
-		}
+	public int getType() {
+		return _type;
 	}
 
 	@Override
-	public void setType(String type) {
+	public void setType(int type) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -983,12 +978,6 @@ public class PersistedVitaminModelImpl
 
 		persistedVitaminCacheModel.type = getType();
 
-		String type = persistedVitaminCacheModel.type;
-
-		if ((type != null) && (type.length() == 0)) {
-			persistedVitaminCacheModel.type = null;
-		}
-
 		return persistedVitaminCacheModel;
 	}
 
@@ -1076,7 +1065,7 @@ public class PersistedVitaminModelImpl
 	private String _articleId;
 	private String _description;
 	private String _name;
-	private String _type;
+	private int _type;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);

@@ -51,6 +51,21 @@ public class PersistedVitaminLocalServiceWrapper
 			persistedVitamin);
 	}
 
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin addPersistedVitamin(
+			String id, String name, String groupName, String description,
+			int typeCode, String articleId, String[] chemicalNames,
+			String[] properties, String[] attributes, String[] symptoms,
+			String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _persistedVitaminLocalService.addPersistedVitamin(
+			id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -125,6 +140,26 @@ public class PersistedVitaminLocalServiceWrapper
 
 		return _persistedVitaminLocalService.deletePersistedVitamin(
 			persistedVitamin);
+	}
+
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin deleteVitamin(
+			long persistedVitaminId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _persistedVitaminLocalService.deleteVitamin(persistedVitaminId);
+	}
+
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin deleteVitamin(
+		com.denbinger.vitamins.model.PersistedVitamin persistedVitamin) {
+
+		return _persistedVitaminLocalService.deleteVitamin(persistedVitamin);
+	}
+
+	@Override
+	public void deleteVitamin(String surrogateId) {
+		_persistedVitaminLocalService.deleteVitamin(surrogateId);
 	}
 
 	@Override
@@ -303,6 +338,13 @@ public class PersistedVitaminLocalServiceWrapper
 			persistedVitaminId);
 	}
 
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin getPersistedVitamin(
+		String surrogateId) {
+
+		return _persistedVitaminLocalService.getPersistedVitamin(surrogateId);
+	}
+
 	/**
 	 * Returns the persisted vitamin matching the UUID and group.
 	 *
@@ -386,6 +428,21 @@ public class PersistedVitaminLocalServiceWrapper
 		return _persistedVitaminLocalService.getPersistedVitaminsCount();
 	}
 
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin patchPersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _persistedVitaminLocalService.patchPersistedVitamin(
+			oldId, id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
+	}
+
 	/**
 	 * Updates the persisted vitamin in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
@@ -402,6 +459,21 @@ public class PersistedVitaminLocalServiceWrapper
 
 		return _persistedVitaminLocalService.updatePersistedVitamin(
 			persistedVitamin);
+	}
+
+	@Override
+	public com.denbinger.vitamins.model.PersistedVitamin updatePersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _persistedVitaminLocalService.updatePersistedVitamin(
+			oldId, id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
 	}
 
 	@Override

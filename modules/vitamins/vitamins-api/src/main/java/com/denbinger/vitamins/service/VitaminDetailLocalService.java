@@ -29,6 +29,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -65,6 +66,19 @@ public interface VitaminDetailLocalService
 	 */
 
 	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			ServiceContext serviceContext)
+		throws PortalException;
+
+	/**
 	 * Adds the vitamin detail to the database. Also notifies the appropriate model listeners.
 	 *
 	 * <p>
@@ -91,6 +105,13 @@ public interface VitaminDetailLocalService
 	 */
 	@Transactional(enabled = false)
 	public VitaminDetail createVitaminDetail(long vitaminDetailId);
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	public void deleteAllVitaminDetails(long persistedVitaminId);
 
 	/**
 	 * @throws PortalException
@@ -126,6 +147,9 @@ public interface VitaminDetailLocalService
 	 */
 	@Indexable(type = IndexableType.DELETE)
 	public VitaminDetail deleteVitaminDetail(VitaminDetail vitaminDetail);
+
+	public void deleteVitaminDetailsByType(
+		long persistedVitaminId, int typeCode);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DynamicQuery dynamicQuery();
@@ -210,6 +234,15 @@ public interface VitaminDetailLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<VitaminDetail> getAllVitaminDetails(long persistedVitaminId);
+
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
 		PortletDataContext portletDataContext);
@@ -269,6 +302,17 @@ public interface VitaminDetailLocalService
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<VitaminDetail> getVitaminDetails(int start, int end);
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<VitaminDetail> getVitaminDetailsByType(
+		long persistedVitaminId, int typeCode);
 
 	/**
 	 * Returns all the vitamin details matching the UUID and company.

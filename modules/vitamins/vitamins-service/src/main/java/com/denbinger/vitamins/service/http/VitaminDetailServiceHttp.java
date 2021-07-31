@@ -14,13 +14,22 @@
 
 package com.denbinger.vitamins.service.http;
 
+import com.denbinger.vitamins.service.VitaminDetailServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.HttpPrincipal;
+import com.liferay.portal.kernel.service.http.TunnelUtil;
+import com.liferay.portal.kernel.util.MethodHandler;
+import com.liferay.portal.kernel.util.MethodKey;
+
 /**
  * Provides the HTTP utility for the
- * <code>com.denbinger.vitamins.service.VitaminDetailServiceUtil</code> service
+ * <code>VitaminDetailServiceUtil</code> service
  * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * <code>com.liferay.portal.kernel.security.auth.HttpPrincipal</code> parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -42,4 +51,250 @@ package com.denbinger.vitamins.service.http;
  * @generated
  */
 public class VitaminDetailServiceHttp {
+
+	public static VitaminDetail addVitaminDetail(
+			HttpPrincipal httpPrincipal, long persistedVitaminId, int typeCode,
+			String value, ServiceContext serviceContext)
+		throws PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "addVitaminDetail",
+				_addVitaminDetailParameterTypes0);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, persistedVitaminId, typeCode, value, serviceContext);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof PortalException) {
+					throw (PortalException)exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (VitaminDetail)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static void deleteAllVitaminDetails(
+		HttpPrincipal httpPrincipal, long persistedVitaminId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "deleteAllVitaminDetails",
+				_deleteAllVitaminDetailsParameterTypes1);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, persistedVitaminId);
+
+			try {
+				TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static void deleteVitaminDetailsByType(
+		HttpPrincipal httpPrincipal, long persistedVitaminId, int typeCode) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "deleteVitaminDetailsByType",
+				_deleteVitaminDetailsByTypeParameterTypes2);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, persistedVitaminId, typeCode);
+
+			try {
+				TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static VitaminDetail deleteVitaminDetail(
+			HttpPrincipal httpPrincipal, long vitaminDetailId)
+		throws PortalException {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "deleteVitaminDetail",
+				_deleteVitaminDetailParameterTypes3);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, vitaminDetailId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				if (exception instanceof PortalException) {
+					throw (PortalException)exception;
+				}
+
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (VitaminDetail)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static VitaminDetail deleteVitaminDetail(
+		HttpPrincipal httpPrincipal, VitaminDetail vitaminDetail) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "deleteVitaminDetail",
+				_deleteVitaminDetailParameterTypes4);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, vitaminDetail);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (VitaminDetail)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static List<VitaminDetail> getAllVitaminDetails(
+		HttpPrincipal httpPrincipal, long persistedVitaminId) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "getAllVitaminDetails",
+				_getAllVitaminDetailsParameterTypes5);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, persistedVitaminId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (List<VitaminDetail>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static List<VitaminDetail> getVitaminDetailsByType(
+		HttpPrincipal httpPrincipal, long persistedVitaminId, int typeCode) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				VitaminDetailServiceUtil.class, "getVitaminDetailsByType",
+				_getVitaminDetailsByTypeParameterTypes6);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, persistedVitaminId, typeCode);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (List<VitaminDetail>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		VitaminDetailServiceHttp.class);
+
+	private static final Class<?>[] _addVitaminDetailParameterTypes0 =
+		new Class[] {long.class, int.class, String.class, ServiceContext.class};
+	private static final Class<?>[] _deleteAllVitaminDetailsParameterTypes1 =
+		new Class[] {long.class};
+	private static final Class<?>[] _deleteVitaminDetailsByTypeParameterTypes2 =
+		new Class[] {long.class, int.class};
+	private static final Class<?>[] _deleteVitaminDetailParameterTypes3 =
+		new Class[] {long.class};
+	private static final Class<?>[] _deleteVitaminDetailParameterTypes4 =
+		new Class[] {VitaminDetail.class};
+	private static final Class<?>[] _getAllVitaminDetailsParameterTypes5 =
+		new Class[] {long.class};
+	private static final Class<?>[] _getVitaminDetailsByTypeParameterTypes6 =
+		new Class[] {long.class, int.class};
+
 }

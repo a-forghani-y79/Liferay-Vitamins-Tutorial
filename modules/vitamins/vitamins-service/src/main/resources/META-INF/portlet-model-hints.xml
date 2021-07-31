@@ -15,7 +15,7 @@
 		<field name="articleId" type="String" />
 		<field name="description" type="String" />
 		<field name="name" type="String" />
-		<field name="type" type="String" />
+		<field name="type" type="int" />
 	</model>
 	<model name="com.denbinger.vitamins.model.VitaminDetail">
 		<field name="uuid" type="String" />
@@ -27,7 +27,7 @@
 		<field name="userName" type="String" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
-		<field name="type" type="String" />
+		<field name="type" type="int" />
 		<field name="value" type="String" />
 	</model>
 </model-hints>

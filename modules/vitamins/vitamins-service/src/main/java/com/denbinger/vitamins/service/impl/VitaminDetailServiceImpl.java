@@ -47,4 +47,62 @@ public class VitaminDetailServiceImpl extends VitaminDetailServiceBaseImpl {
 	 *
 	 * Never reference this class directly. Always use <code>com.denbinger.vitamins.service.VitaminDetailServiceUtil</code> to access the vitamin detail remote service.
 	 */
+
+	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public VitaminDetail addVitaminDetail(final long persistedVitaminId, final int typeCode, final String value, final ServiceContext serviceContext) throws PortalException {
+		VitaminDetail detail = null;
+
+
+		return detail;
+	}
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 * @param persistedVitaminId
+	 */
+	public void deleteAllVitaminDetails(final long persistedVitaminId) {
+
+	}
+
+	public void deleteVitaminDetailsByType(final long persistedVitaminId, final int typeCode) {
+
+	}
+
+	public VitaminDetail deleteVitaminDetail(long vitaminDetailId) throws PortalException {
+		VitaminDetail detail = null;
+
+		return detail;
+	}
+
+	public VitaminDetail deleteVitaminDetail(VitaminDetail vitaminDetail) {
+		VitaminDetail detail = null;
+
+		return detail;
+	}
+
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	public List<VitaminDetail> getAllVitaminDetails(final long persistedVitaminId) {
+		return null;
+	}
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	public List<VitaminDetail> getVitaminDetailsByType(final long persistedVitaminId, final int typeCode) {
+		return null;
+	}
+
 }

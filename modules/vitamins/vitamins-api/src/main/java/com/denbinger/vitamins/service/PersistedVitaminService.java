@@ -14,12 +14,16 @@
 
 package com.denbinger.vitamins.service;
 
+import com.denbinger.vitamins.model.PersistedVitamin;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -47,6 +51,15 @@ public interface PersistedVitaminService extends BaseService {
 	 *
 	 * Never modify this interface directly. Add custom service methods to <code>com.denbinger.vitamins.service.impl.PersistedVitaminServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the persisted vitamin remote service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link PersistedVitaminServiceUtil} if injection and service tracking are not available.
 	 */
+	public PersistedVitamin addPersistedVitamin(
+			String id, String name, String groupName, String description,
+			int typeCode, String articleId, String[] chemicalNames,
+			String[] properties, String[] attributes, String[] symptoms,
+			String[] risks, ServiceContext serviceContext)
+		throws PortalException;
+
+	public void deletePersistedVitamin(String surrogateId)
+		throws PortalException;
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -54,5 +67,27 @@ public interface PersistedVitaminService extends BaseService {
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public PersistedVitamin getPersistedVitamin(long persistedVitaminId)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public PersistedVitamin getPersistedVitamin(String surrogateId)
+		throws PortalException;
+
+	public PersistedVitamin patchPersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks, ServiceContext serviceContext)
+		throws PortalException;
+
+	public PersistedVitamin updatePersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks, ServiceContext serviceContext)
+		throws PortalException;
 
 }

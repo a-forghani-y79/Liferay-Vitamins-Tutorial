@@ -46,6 +46,23 @@ public class VitaminDetailLocalServiceUtil {
 	 */
 
 	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public static VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addVitaminDetail(
+			persistedVitaminId, typeCode, value, serviceContext);
+	}
+
+	/**
 	 * Adds the vitamin detail to the database. Also notifies the appropriate model listeners.
 	 *
 	 * <p>
@@ -77,6 +94,15 @@ public class VitaminDetailLocalServiceUtil {
 	 */
 	public static VitaminDetail createVitaminDetail(long vitaminDetailId) {
 		return getService().createVitaminDetail(vitaminDetailId);
+	}
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	public static void deleteAllVitaminDetails(long persistedVitaminId) {
+		getService().deleteAllVitaminDetails(persistedVitaminId);
 	}
 
 	/**
@@ -120,6 +146,12 @@ public class VitaminDetailLocalServiceUtil {
 		VitaminDetail vitaminDetail) {
 
 		return getService().deleteVitaminDetail(vitaminDetail);
+	}
+
+	public static void deleteVitaminDetailsByType(
+		long persistedVitaminId, int typeCode) {
+
+		getService().deleteVitaminDetailsByType(persistedVitaminId, typeCode);
 	}
 
 	public static DynamicQuery dynamicQuery() {
@@ -222,6 +254,18 @@ public class VitaminDetailLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getAllVitaminDetails(
+		long persistedVitaminId) {
+
+		return getService().getAllVitaminDetails(persistedVitaminId);
+	}
+
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery
 		getExportActionableDynamicQuery(
 			com.liferay.exportimport.kernel.lar.PortletDataContext
@@ -296,6 +340,20 @@ public class VitaminDetailLocalServiceUtil {
 	 */
 	public static List<VitaminDetail> getVitaminDetails(int start, int end) {
 		return getService().getVitaminDetails(start, end);
+	}
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getVitaminDetailsByType(
+		long persistedVitaminId, int typeCode) {
+
+		return getService().getVitaminDetailsByType(
+			persistedVitaminId, typeCode);
 	}
 
 	/**

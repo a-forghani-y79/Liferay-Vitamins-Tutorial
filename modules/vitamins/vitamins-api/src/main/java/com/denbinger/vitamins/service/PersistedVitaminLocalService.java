@@ -25,10 +25,13 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.PersistedModel;
+import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -77,6 +80,15 @@ public interface PersistedVitaminLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public PersistedVitamin addPersistedVitamin(
 		PersistedVitamin persistedVitamin);
+
+	@Indexable(type = IndexableType.REINDEX)
+	@SystemEvent(type = SystemEventConstants.TYPE_DEFAULT)
+	public PersistedVitamin addPersistedVitamin(
+			String id, String name, String groupName, String description,
+			int typeCode, String articleId, String[] chemicalNames,
+			String[] properties, String[] attributes, String[] symptoms,
+			String[] risks, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	 * @throws PortalException
@@ -128,6 +140,17 @@ public interface PersistedVitaminLocalService
 	@Indexable(type = IndexableType.DELETE)
 	public PersistedVitamin deletePersistedVitamin(
 		PersistedVitamin persistedVitamin);
+
+	@Indexable(type = IndexableType.DELETE)
+	public PersistedVitamin deleteVitamin(long persistedVitaminId)
+		throws PortalException;
+
+	@Indexable(type = IndexableType.DELETE)
+	@SystemEvent(type = SystemEventConstants.TYPE_DELETE)
+	public PersistedVitamin deleteVitamin(PersistedVitamin persistedVitamin);
+
+	@Indexable(type = IndexableType.DELETE)
+	public void deleteVitamin(String surrogateId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DynamicQuery dynamicQuery();
@@ -245,6 +268,9 @@ public interface PersistedVitaminLocalService
 	public PersistedVitamin getPersistedVitamin(long persistedVitaminId)
 		throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public PersistedVitamin getPersistedVitamin(String surrogateId);
+
 	/**
 	 * Returns the persisted vitamin matching the UUID and group.
 	 *
@@ -306,6 +332,15 @@ public interface PersistedVitaminLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getPersistedVitaminsCount();
 
+	@Indexable(type = IndexableType.REINDEX)
+	@SystemEvent(type = SystemEventConstants.TYPE_DEFAULT)
+	public PersistedVitamin patchPersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks, ServiceContext serviceContext)
+		throws PortalException;
+
 	/**
 	 * Updates the persisted vitamin in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
@@ -319,5 +354,14 @@ public interface PersistedVitaminLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public PersistedVitamin updatePersistedVitamin(
 		PersistedVitamin persistedVitamin);
+
+	@Indexable(type = IndexableType.REINDEX)
+	@SystemEvent(type = SystemEventConstants.TYPE_DEFAULT)
+	public PersistedVitamin updatePersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks, ServiceContext serviceContext)
+		throws PortalException;
 
 }

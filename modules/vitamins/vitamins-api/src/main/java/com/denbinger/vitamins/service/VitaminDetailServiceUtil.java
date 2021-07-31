@@ -14,6 +14,12 @@
 
 package com.denbinger.vitamins.service;
 
+import com.denbinger.vitamins.model.VitaminDetail;
+
+import com.liferay.portal.kernel.exception.PortalException;
+
+import java.util.List;
+
 /**
  * Provides the remote service utility for VitaminDetail. This utility wraps
  * <code>com.denbinger.vitamins.service.impl.VitaminDetailServiceImpl</code> and is an
@@ -35,12 +41,82 @@ public class VitaminDetailServiceUtil {
 	 */
 
 	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public static VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addVitaminDetail(
+			persistedVitaminId, typeCode, value, serviceContext);
+	}
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	public static void deleteAllVitaminDetails(long persistedVitaminId) {
+		getService().deleteAllVitaminDetails(persistedVitaminId);
+	}
+
+	public static VitaminDetail deleteVitaminDetail(long vitaminDetailId)
+		throws PortalException {
+
+		return getService().deleteVitaminDetail(vitaminDetailId);
+	}
+
+	public static VitaminDetail deleteVitaminDetail(
+		VitaminDetail vitaminDetail) {
+
+		return getService().deleteVitaminDetail(vitaminDetail);
+	}
+
+	public static void deleteVitaminDetailsByType(
+		long persistedVitaminId, int typeCode) {
+
+		getService().deleteVitaminDetailsByType(persistedVitaminId, typeCode);
+	}
+
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getAllVitaminDetails(
+		long persistedVitaminId) {
+
+		return getService().getAllVitaminDetails(persistedVitaminId);
+	}
+
+	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
-	public static java.lang.String getOSGiServiceIdentifier() {
+	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
+	}
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getVitaminDetailsByType(
+		long persistedVitaminId, int typeCode) {
+
+		return getService().getVitaminDetailsByType(
+			persistedVitaminId, typeCode);
 	}
 
 	public static VitaminDetailService getService() {

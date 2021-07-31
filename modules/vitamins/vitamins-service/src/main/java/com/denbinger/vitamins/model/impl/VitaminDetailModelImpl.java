@@ -79,7 +79,7 @@ public class VitaminDetailModelImpl
 		{"persistedVitaminId", Types.BIGINT}, {"groupId", Types.BIGINT},
 		{"companyId", Types.BIGINT}, {"userId", Types.BIGINT},
 		{"userName", Types.VARCHAR}, {"createDate", Types.TIMESTAMP},
-		{"modifiedDate", Types.TIMESTAMP}, {"type_", Types.VARCHAR},
+		{"modifiedDate", Types.TIMESTAMP}, {"type_", Types.INTEGER},
 		{"value", Types.VARCHAR}
 	};
 
@@ -96,12 +96,12 @@ public class VitaminDetailModelImpl
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
-		TABLE_COLUMNS_MAP.put("type_", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("type_", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("value", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table FOO_VitaminDetail (uuid_ VARCHAR(75) null,vitaminDetailId LONG not null primary key,persistedVitaminId LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,type_ VARCHAR(75) null,value VARCHAR(75) null)";
+		"create table FOO_VitaminDetail (uuid_ VARCHAR(75) null,vitaminDetailId LONG not null primary key,persistedVitaminId LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,type_ INTEGER,value VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table FOO_VitaminDetail";
 
@@ -387,7 +387,7 @@ public class VitaminDetailModelImpl
 			(BiConsumer<VitaminDetail, Date>)VitaminDetail::setModifiedDate);
 		attributeGetterFunctions.put("type", VitaminDetail::getType);
 		attributeSetterBiConsumers.put(
-			"type", (BiConsumer<VitaminDetail, String>)VitaminDetail::setType);
+			"type", (BiConsumer<VitaminDetail, Integer>)VitaminDetail::setType);
 		attributeGetterFunctions.put("value", VitaminDetail::getValue);
 		attributeSetterBiConsumers.put(
 			"value",
@@ -606,17 +606,12 @@ public class VitaminDetailModelImpl
 
 	@JSON
 	@Override
-	public String getType() {
-		if (_type == null) {
-			return "";
-		}
-		else {
-			return _type;
-		}
+	public int getType() {
+		return _type;
 	}
 
 	@Override
-	public void setType(String type) {
+	public void setType(int type) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -629,8 +624,9 @@ public class VitaminDetailModelImpl
 	 *             #getColumnOriginalValue(String)}
 	 */
 	@Deprecated
-	public String getOriginalType() {
-		return getColumnOriginalValue("type_");
+	public int getOriginalType() {
+		return GetterUtil.getInteger(
+			this.<Integer>getColumnOriginalValue("type_"));
 	}
 
 	@JSON
@@ -850,12 +846,6 @@ public class VitaminDetailModelImpl
 
 		vitaminDetailCacheModel.type = getType();
 
-		String type = vitaminDetailCacheModel.type;
-
-		if ((type != null) && (type.length() == 0)) {
-			vitaminDetailCacheModel.type = null;
-		}
-
 		vitaminDetailCacheModel.value = getValue();
 
 		String value = vitaminDetailCacheModel.value;
@@ -947,7 +937,7 @@ public class VitaminDetailModelImpl
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
-	private String _type;
+	private int _type;
 	private String _value;
 
 	public <T> T getColumnValue(String columnName) {

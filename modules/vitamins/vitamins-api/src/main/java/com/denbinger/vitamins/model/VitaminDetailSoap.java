@@ -169,11 +169,11 @@ public class VitaminDetailSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
-	public String getType() {
+	public int getType() {
 		return _type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		_type = type;
 	}
 
@@ -194,7 +194,7 @@ public class VitaminDetailSoap implements Serializable {
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private String _type;
+	private int _type;
 	private String _value;
 
 }

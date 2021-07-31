@@ -61,6 +61,20 @@ public class PersistedVitaminLocalServiceUtil {
 		return getService().addPersistedVitamin(persistedVitamin);
 	}
 
+	public static PersistedVitamin addPersistedVitamin(
+			String id, String name, String groupName, String description,
+			int typeCode, String articleId, String[] chemicalNames,
+			String[] properties, String[] attributes, String[] symptoms,
+			String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().addPersistedVitamin(
+			id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
+	}
+
 	/**
 	 * @throws PortalException
 	 */
@@ -125,6 +139,22 @@ public class PersistedVitaminLocalServiceUtil {
 		PersistedVitamin persistedVitamin) {
 
 		return getService().deletePersistedVitamin(persistedVitamin);
+	}
+
+	public static PersistedVitamin deleteVitamin(long persistedVitaminId)
+		throws PortalException {
+
+		return getService().deleteVitamin(persistedVitaminId);
+	}
+
+	public static PersistedVitamin deleteVitamin(
+		PersistedVitamin persistedVitamin) {
+
+		return getService().deleteVitamin(persistedVitamin);
+	}
+
+	public static void deleteVitamin(String surrogateId) {
+		getService().deleteVitamin(surrogateId);
 	}
 
 	public static DynamicQuery dynamicQuery() {
@@ -276,6 +306,10 @@ public class PersistedVitaminLocalServiceUtil {
 		return getService().getPersistedVitamin(persistedVitaminId);
 	}
 
+	public static PersistedVitamin getPersistedVitamin(String surrogateId) {
+		return getService().getPersistedVitamin(surrogateId);
+	}
+
 	/**
 	 * Returns the persisted vitamin matching the UUID and group.
 	 *
@@ -349,6 +383,20 @@ public class PersistedVitaminLocalServiceUtil {
 		return getService().getPersistedVitaminsCount();
 	}
 
+	public static PersistedVitamin patchPersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().patchPersistedVitamin(
+			oldId, id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
+	}
+
 	/**
 	 * Updates the persisted vitamin in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *
@@ -363,6 +411,20 @@ public class PersistedVitaminLocalServiceUtil {
 		PersistedVitamin persistedVitamin) {
 
 		return getService().updatePersistedVitamin(persistedVitamin);
+	}
+
+	public static PersistedVitamin updatePersistedVitamin(
+			String oldId, String id, String name, String groupName,
+			String description, int typeCode, String articleId,
+			String[] chemicalNames, String[] properties, String[] attributes,
+			String[] symptoms, String[] risks,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws PortalException {
+
+		return getService().updatePersistedVitamin(
+			oldId, id, name, groupName, description, typeCode, articleId,
+			chemicalNames, properties, attributes, symptoms, risks,
+			serviceContext);
 	}
 
 	public static PersistedVitaminLocalService getService() {

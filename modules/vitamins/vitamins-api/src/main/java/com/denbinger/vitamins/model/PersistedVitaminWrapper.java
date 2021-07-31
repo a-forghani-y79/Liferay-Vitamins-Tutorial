@@ -141,7 +141,7 @@ public class PersistedVitaminWrapper
 			setName(name);
 		}
 
-		String type = (String)attributes.get("type");
+		Integer type = (Integer)attributes.get("type");
 
 		if (type != null) {
 			setType(type);
@@ -264,7 +264,7 @@ public class PersistedVitaminWrapper
 	 * @return the type of this persisted vitamin
 	 */
 	@Override
-	public String getType() {
+	public int getType() {
 		return model.getType();
 	}
 
@@ -429,7 +429,7 @@ public class PersistedVitaminWrapper
 	 * @param type the type of this persisted vitamin
 	 */
 	@Override
-	public void setType(String type) {
+	public void setType(int type) {
 		model.setType(type);
 	}
 

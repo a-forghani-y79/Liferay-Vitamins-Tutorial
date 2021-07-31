@@ -284,14 +284,13 @@ public interface PersistedVitaminModel
 	 *
 	 * @return the type of this persisted vitamin
 	 */
-	@AutoEscape
-	public String getType();
+	public int getType();
 
 	/**
 	 * Sets the type of this persisted vitamin.
 	 *
 	 * @param type the type of this persisted vitamin
 	 */
-	public void setType(String type);
+	public void setType(int type);
 
 }

@@ -1985,7 +1985,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
+		long persistedVitaminId, int type) {
 
 		return findBypersistedVitaminIdType(
 			persistedVitaminId, type, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
@@ -2007,7 +2007,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end) {
+		long persistedVitaminId, int type, int start, int end) {
 
 		return findBypersistedVitaminIdType(
 			persistedVitaminId, type, start, end, null);
@@ -2029,7 +2029,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		return findBypersistedVitaminIdType(
@@ -2053,11 +2053,9 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		OrderByComparator<VitaminDetail> orderByComparator,
 		boolean useFinderCache) {
-
-		type = Objects.toString(type, "");
 
 		FinderPath finderPath = null;
 		Object[] finderArgs = null;
@@ -2088,7 +2086,7 @@ public class VitaminDetailPersistenceImpl
 				for (VitaminDetail vitaminDetail : list) {
 					if ((persistedVitaminId !=
 							vitaminDetail.getPersistedVitaminId()) ||
-						!type.equals(vitaminDetail.getType())) {
+						(type != vitaminDetail.getType())) {
 
 						list = null;
 
@@ -2114,16 +2112,7 @@ public class VitaminDetailPersistenceImpl
 			sb.append(
 				_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_PERSISTEDVITAMINID_2);
 
-			boolean bindType = false;
-
-			if (type.isEmpty()) {
-				sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_3);
-			}
-			else {
-				bindType = true;
-
-				sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
-			}
+			sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(
@@ -2146,9 +2135,7 @@ public class VitaminDetailPersistenceImpl
 
 				queryPos.add(persistedVitaminId);
 
-				if (bindType) {
-					queryPos.add(type);
-				}
+				queryPos.add(type);
 
 				list = (List<VitaminDetail>)QueryUtil.list(
 					query, getDialect(), start, end);
@@ -2181,7 +2168,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public VitaminDetail findBypersistedVitaminIdType_First(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws NoSuchVitaminDetailException {
 
@@ -2217,7 +2204,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public VitaminDetail fetchBypersistedVitaminIdType_First(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		List<VitaminDetail> list = findBypersistedVitaminIdType(
@@ -2241,7 +2228,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public VitaminDetail findBypersistedVitaminIdType_Last(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws NoSuchVitaminDetailException {
 
@@ -2277,7 +2264,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public VitaminDetail fetchBypersistedVitaminIdType_Last(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		int count = countBypersistedVitaminIdType(persistedVitaminId, type);
@@ -2308,11 +2295,9 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public VitaminDetail[] findBypersistedVitaminIdType_PrevAndNext(
-			long vitaminDetailId, long persistedVitaminId, String type,
+			long vitaminDetailId, long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws NoSuchVitaminDetailException {
-
-		type = Objects.toString(type, "");
 
 		VitaminDetail vitaminDetail = findByPrimaryKey(vitaminDetailId);
 
@@ -2345,7 +2330,7 @@ public class VitaminDetailPersistenceImpl
 
 	protected VitaminDetail getBypersistedVitaminIdType_PrevAndNext(
 		Session session, VitaminDetail vitaminDetail, long persistedVitaminId,
-		String type, OrderByComparator<VitaminDetail> orderByComparator,
+		int type, OrderByComparator<VitaminDetail> orderByComparator,
 		boolean previous) {
 
 		StringBundler sb = null;
@@ -2363,16 +2348,7 @@ public class VitaminDetailPersistenceImpl
 
 		sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_PERSISTEDVITAMINID_2);
 
-		boolean bindType = false;
-
-		if (type.isEmpty()) {
-			sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_3);
-		}
-		else {
-			bindType = true;
-
-			sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
-		}
+		sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields =
@@ -2445,9 +2421,7 @@ public class VitaminDetailPersistenceImpl
 
 		queryPos.add(persistedVitaminId);
 
-		if (bindType) {
-			queryPos.add(type);
-		}
+		queryPos.add(type);
 
 		if (orderByComparator != null) {
 			for (Object orderByConditionValue :
@@ -2476,7 +2450,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public void removeBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
+		long persistedVitaminId, int type) {
 
 		for (VitaminDetail vitaminDetail :
 				findBypersistedVitaminIdType(
@@ -2496,9 +2470,7 @@ public class VitaminDetailPersistenceImpl
 	 */
 	@Override
 	public int countBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
-
-		type = Objects.toString(type, "");
+		long persistedVitaminId, int type) {
 
 		FinderPath finderPath = _finderPathCountBypersistedVitaminIdType;
 
@@ -2514,16 +2486,7 @@ public class VitaminDetailPersistenceImpl
 			sb.append(
 				_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_PERSISTEDVITAMINID_2);
 
-			boolean bindType = false;
-
-			if (type.isEmpty()) {
-				sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_3);
-			}
-			else {
-				bindType = true;
-
-				sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
-			}
+			sb.append(_FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2);
 
 			String sql = sb.toString();
 
@@ -2538,9 +2501,7 @@ public class VitaminDetailPersistenceImpl
 
 				queryPos.add(persistedVitaminId);
 
-				if (bindType) {
-					queryPos.add(type);
-				}
+				queryPos.add(type);
 
 				count = (Long)query.uniqueResult();
 
@@ -2563,9 +2524,6 @@ public class VitaminDetailPersistenceImpl
 
 	private static final String _FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_2 =
 		"vitaminDetail.type = ?";
-
-	private static final String _FINDER_COLUMN_PERSISTEDVITAMINIDTYPE_TYPE_3 =
-		"(vitaminDetail.type IS NULL OR vitaminDetail.type = '')";
 
 	public VitaminDetailPersistenceImpl() {
 		Map<String, String> dbColumnNames = new HashMap<String, String>();
@@ -3219,7 +3177,7 @@ public class VitaminDetailPersistenceImpl
 				FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
 				"findBypersistedVitaminIdType",
 				new String[] {
-					Long.class.getName(), String.class.getName(),
+					Long.class.getName(), Integer.class.getName(),
 					Integer.class.getName(), Integer.class.getName(),
 					OrderByComparator.class.getName()
 				},
@@ -3229,13 +3187,13 @@ public class VitaminDetailPersistenceImpl
 			_createFinderPath(
 				FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
 				"findBypersistedVitaminIdType",
-				new String[] {Long.class.getName(), String.class.getName()},
+				new String[] {Long.class.getName(), Integer.class.getName()},
 				new String[] {"persistedVitaminId", "type_"}, true);
 
 		_finderPathCountBypersistedVitaminIdType = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
 			"countBypersistedVitaminIdType",
-			new String[] {Long.class.getName(), String.class.getName()},
+			new String[] {Long.class.getName(), Integer.class.getName()},
 			new String[] {"persistedVitaminId", "type_"}, false);
 	}
 

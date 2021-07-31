@@ -14,12 +14,15 @@
 
 package com.denbinger.vitamins.service;
 
+import com.denbinger.vitamins.model.VitaminDetail;
+
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 
 import org.osgi.annotation.versioning.ProviderType;
@@ -49,10 +52,58 @@ public interface VitaminDetailService extends BaseService {
 	 */
 
 	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			ServiceContext serviceContext)
+		throws PortalException;
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	public void deleteAllVitaminDetails(long persistedVitaminId);
+
+	public VitaminDetail deleteVitaminDetail(long vitaminDetailId)
+		throws PortalException;
+
+	public VitaminDetail deleteVitaminDetail(VitaminDetail vitaminDetail);
+
+	public void deleteVitaminDetailsByType(
+		long persistedVitaminId, int typeCode);
+
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<VitaminDetail> getAllVitaminDetails(long persistedVitaminId);
+
+	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
 	 */
 	public String getOSGiServiceIdentifier();
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<VitaminDetail> getVitaminDetailsByType(
+		long persistedVitaminId, int typeCode);
 
 }

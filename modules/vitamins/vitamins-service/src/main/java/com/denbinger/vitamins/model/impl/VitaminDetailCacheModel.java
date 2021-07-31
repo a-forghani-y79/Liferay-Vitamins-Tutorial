@@ -130,12 +130,7 @@ public class VitaminDetailCacheModel
 			vitaminDetailImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		if (type == null) {
-			vitaminDetailImpl.setType("");
-		}
-		else {
-			vitaminDetailImpl.setType(type);
-		}
+		vitaminDetailImpl.setType(type);
 
 		if (value == null) {
 			vitaminDetailImpl.setValue("");
@@ -165,7 +160,8 @@ public class VitaminDetailCacheModel
 		userName = objectInput.readUTF();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		type = objectInput.readUTF();
+
+		type = objectInput.readInt();
 		value = objectInput.readUTF();
 	}
 
@@ -198,12 +194,7 @@ public class VitaminDetailCacheModel
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
-		if (type == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+		objectOutput.writeInt(type);
 
 		if (value == null) {
 			objectOutput.writeUTF("");
@@ -222,7 +213,7 @@ public class VitaminDetailCacheModel
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
-	public String type;
+	public int type;
 	public String value;
 
 }

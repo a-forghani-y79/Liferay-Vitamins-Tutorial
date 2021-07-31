@@ -173,12 +173,7 @@ public class PersistedVitaminCacheModel
 			persistedVitaminImpl.setName(name);
 		}
 
-		if (type == null) {
-			persistedVitaminImpl.setType("");
-		}
-		else {
-			persistedVitaminImpl.setType(type);
-		}
+		persistedVitaminImpl.setType(type);
 
 		persistedVitaminImpl.resetOriginalValues();
 
@@ -204,7 +199,8 @@ public class PersistedVitaminCacheModel
 		articleId = objectInput.readUTF();
 		description = objectInput.readUTF();
 		name = objectInput.readUTF();
-		type = objectInput.readUTF();
+
+		type = objectInput.readInt();
 	}
 
 	@Override
@@ -269,12 +265,7 @@ public class PersistedVitaminCacheModel
 			objectOutput.writeUTF(name);
 		}
 
-		if (type == null) {
-			objectOutput.writeUTF("");
-		}
-		else {
-			objectOutput.writeUTF(type);
-		}
+		objectOutput.writeInt(type);
 	}
 
 	public String uuid;
@@ -290,6 +281,6 @@ public class PersistedVitaminCacheModel
 	public String articleId;
 	public String description;
 	public String name;
-	public String type;
+	public int type;
 
 }

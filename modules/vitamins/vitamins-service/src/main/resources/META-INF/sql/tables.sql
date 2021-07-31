@@ -12,7 +12,7 @@ create table FOO_PersistedVitamin (
 	articleId VARCHAR(75) null,
 	description VARCHAR(75) null,
 	name VARCHAR(75) null,
-	type_ VARCHAR(75) null
+	type_ INTEGER
 );
 
 create table FOO_VitaminDetail (
@@ -25,6 +25,6 @@ create table FOO_VitaminDetail (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
-	type_ VARCHAR(75) null,
+	type_ INTEGER,
 	value VARCHAR(75) null
 );

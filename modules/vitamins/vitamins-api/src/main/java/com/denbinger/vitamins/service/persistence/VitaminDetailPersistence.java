@@ -542,7 +542,7 @@ public interface VitaminDetailPersistence
 	 * @return the matching vitamin details
 	 */
 	public java.util.List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type);
+		long persistedVitaminId, int type);
 
 	/**
 	 * Returns a range of all the vitamin details where persistedVitaminId = &#63; and type = &#63;.
@@ -558,7 +558,7 @@ public interface VitaminDetailPersistence
 	 * @return the range of matching vitamin details
 	 */
 	public java.util.List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end);
+		long persistedVitaminId, int type, int start, int end);
 
 	/**
 	 * Returns an ordered range of all the vitamin details where persistedVitaminId = &#63; and type = &#63;.
@@ -575,7 +575,7 @@ public interface VitaminDetailPersistence
 	 * @return the ordered range of matching vitamin details
 	 */
 	public java.util.List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 			orderByComparator);
 
@@ -595,7 +595,7 @@ public interface VitaminDetailPersistence
 	 * @return the ordered range of matching vitamin details
 	 */
 	public java.util.List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 			orderByComparator,
 		boolean useFinderCache);
@@ -610,7 +610,7 @@ public interface VitaminDetailPersistence
 	 * @throws NoSuchVitaminDetailException if a matching vitamin detail could not be found
 	 */
 	public VitaminDetail findBypersistedVitaminIdType_First(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 				orderByComparator)
 		throws NoSuchVitaminDetailException;
@@ -624,7 +624,7 @@ public interface VitaminDetailPersistence
 	 * @return the first matching vitamin detail, or <code>null</code> if a matching vitamin detail could not be found
 	 */
 	public VitaminDetail fetchBypersistedVitaminIdType_First(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 			orderByComparator);
 
@@ -638,7 +638,7 @@ public interface VitaminDetailPersistence
 	 * @throws NoSuchVitaminDetailException if a matching vitamin detail could not be found
 	 */
 	public VitaminDetail findBypersistedVitaminIdType_Last(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 				orderByComparator)
 		throws NoSuchVitaminDetailException;
@@ -652,7 +652,7 @@ public interface VitaminDetailPersistence
 	 * @return the last matching vitamin detail, or <code>null</code> if a matching vitamin detail could not be found
 	 */
 	public VitaminDetail fetchBypersistedVitaminIdType_Last(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 			orderByComparator);
 
@@ -667,7 +667,7 @@ public interface VitaminDetailPersistence
 	 * @throws NoSuchVitaminDetailException if a vitamin detail with the primary key could not be found
 	 */
 	public VitaminDetail[] findBypersistedVitaminIdType_PrevAndNext(
-			long vitaminDetailId, long persistedVitaminId, String type,
+			long vitaminDetailId, long persistedVitaminId, int type,
 			com.liferay.portal.kernel.util.OrderByComparator<VitaminDetail>
 				orderByComparator)
 		throws NoSuchVitaminDetailException;
@@ -679,7 +679,7 @@ public interface VitaminDetailPersistence
 	 * @param type the type
 	 */
 	public void removeBypersistedVitaminIdType(
-		long persistedVitaminId, String type);
+		long persistedVitaminId, int type);
 
 	/**
 	 * Returns the number of vitamin details where persistedVitaminId = &#63; and type = &#63;.
@@ -688,8 +688,7 @@ public interface VitaminDetailPersistence
 	 * @param type the type
 	 * @return the number of matching vitamin details
 	 */
-	public int countBypersistedVitaminIdType(
-		long persistedVitaminId, String type);
+	public int countBypersistedVitaminIdType(long persistedVitaminId, int type);
 
 	/**
 	 * Caches the vitamin detail in the entity cache if it is enabled.

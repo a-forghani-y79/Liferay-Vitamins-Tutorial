@@ -223,15 +223,14 @@ public interface VitaminDetailModel
 	 *
 	 * @return the type of this vitamin detail
 	 */
-	@AutoEscape
-	public String getType();
+	public int getType();
 
 	/**
 	 * Sets the type of this vitamin detail.
 	 *
 	 * @param type the type of this vitamin detail
 	 */
-	public void setType(String type);
+	public void setType(int type);
 
 	/**
 	 * Returns the value of this vitamin detail.

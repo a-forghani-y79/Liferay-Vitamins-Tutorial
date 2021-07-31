@@ -14,9 +14,16 @@
 
 package com.denbinger.vitamins.service.http;
 
+import com.denbinger.vitamins.service.VitaminDetailServiceUtil;
+
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.rmi.RemoteException;
+
 /**
  * Provides the SOAP utility for the
- * <code>com.denbinger.vitamins.service.VitaminDetailServiceUtil</code> service
+ * <code>VitaminDetailServiceUtil</code> service
  * utility. The static methods of this class call the same methods of the
  * service utility. However, the signatures are different because it is
  * difficult for SOAP to support certain types.
@@ -56,4 +63,150 @@ package com.denbinger.vitamins.service.http;
  */
 @Deprecated
 public class VitaminDetailServiceSoap {
+
+	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	public static VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			ServiceContext serviceContext)
+		throws RemoteException {
+
+		try {
+			VitaminDetail returnValue =
+				VitaminDetailServiceUtil.addVitaminDetail(
+					persistedVitaminId, typeCode, value, serviceContext);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	public static void deleteAllVitaminDetails(long persistedVitaminId)
+		throws RemoteException {
+
+		try {
+			VitaminDetailServiceUtil.deleteAllVitaminDetails(
+				persistedVitaminId);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static void deleteVitaminDetailsByType(
+			long persistedVitaminId, int typeCode)
+		throws RemoteException {
+
+		try {
+			VitaminDetailServiceUtil.deleteVitaminDetailsByType(
+				persistedVitaminId, typeCode);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static VitaminDetail deleteVitaminDetail(long vitaminDetailId)
+		throws RemoteException {
+
+		try {
+			VitaminDetail returnValue =
+				VitaminDetailServiceUtil.deleteVitaminDetail(vitaminDetailId);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static VitaminDetail deleteVitaminDetail(VitaminDetail vitaminDetail)
+		throws RemoteException {
+
+		try {
+			VitaminDetail returnValue =
+				VitaminDetailServiceUtil.deleteVitaminDetail(vitaminDetail);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getAllVitaminDetails(
+			long persistedVitaminId)
+		throws RemoteException {
+
+		try {
+			List<VitaminDetail> returnValue =
+				VitaminDetailServiceUtil.getAllVitaminDetails(
+					persistedVitaminId);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	public static List<VitaminDetail> getVitaminDetailsByType(
+			long persistedVitaminId, int typeCode)
+		throws RemoteException {
+
+		try {
+			List<VitaminDetail> returnValue =
+				VitaminDetailServiceUtil.getVitaminDetailsByType(
+					persistedVitaminId, typeCode);
+
+			return returnValue;
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	private static Log _log = LogFactoryUtil.getLog(
+		VitaminDetailServiceSoap.class);
+
 }

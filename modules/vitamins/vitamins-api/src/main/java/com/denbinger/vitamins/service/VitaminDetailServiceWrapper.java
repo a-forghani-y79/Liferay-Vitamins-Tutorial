@@ -33,6 +33,70 @@ public class VitaminDetailServiceWrapper
 	}
 
 	/**
+	 * addVitaminDetail: Adds a new vitamin detail record.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @param value
+	 * @return VitaminDetail: The new instance.
+	 */
+	@Override
+	public com.denbinger.vitamins.model.VitaminDetail addVitaminDetail(
+			long persistedVitaminId, int typeCode, String value,
+			ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _vitaminDetailService.addVitaminDetail(
+			persistedVitaminId, typeCode, value, serviceContext);
+	}
+
+	/**
+	 * deleteAllVitaminDetails: Deletes all of the vitamin details.
+	 *
+	 * @param persistedVitaminId
+	 */
+	@Override
+	public void deleteAllVitaminDetails(long persistedVitaminId) {
+		_vitaminDetailService.deleteAllVitaminDetails(persistedVitaminId);
+	}
+
+	@Override
+	public com.denbinger.vitamins.model.VitaminDetail deleteVitaminDetail(
+			long vitaminDetailId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _vitaminDetailService.deleteVitaminDetail(vitaminDetailId);
+	}
+
+	@Override
+	public com.denbinger.vitamins.model.VitaminDetail deleteVitaminDetail(
+		com.denbinger.vitamins.model.VitaminDetail vitaminDetail) {
+
+		return _vitaminDetailService.deleteVitaminDetail(vitaminDetail);
+	}
+
+	@Override
+	public void deleteVitaminDetailsByType(
+		long persistedVitaminId, int typeCode) {
+
+		_vitaminDetailService.deleteVitaminDetailsByType(
+			persistedVitaminId, typeCode);
+	}
+
+	/**
+	 * getAllVitaminDetails: Returns the full list of details for the given persisted vitamin id.
+	 *
+	 * @param persistedVitaminId
+	 * @return List The list of vitamin details.
+	 */
+	@Override
+	public List<com.denbinger.vitamins.model.VitaminDetail>
+		getAllVitaminDetails(long persistedVitaminId) {
+
+		return _vitaminDetailService.getAllVitaminDetails(persistedVitaminId);
+	}
+
+	/**
 	 * Returns the OSGi service identifier.
 	 *
 	 * @return the OSGi service identifier
@@ -40,6 +104,21 @@ public class VitaminDetailServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _vitaminDetailService.getOSGiServiceIdentifier();
+	}
+
+	/**
+	 * getVitaminDetailsByType: Returns the list of details for the given persisted vitamin id and type.
+	 *
+	 * @param persistedVitaminId
+	 * @param typeCode
+	 * @return List The list of vitamin details.
+	 */
+	@Override
+	public List<com.denbinger.vitamins.model.VitaminDetail>
+		getVitaminDetailsByType(long persistedVitaminId, int typeCode) {
+
+		return _vitaminDetailService.getVitaminDetailsByType(
+			persistedVitaminId, typeCode);
 	}
 
 	@Override

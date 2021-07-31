@@ -212,11 +212,11 @@ public class PersistedVitaminSoap implements Serializable {
 		_name = name;
 	}
 
-	public String getType() {
+	public int getType() {
 		return _type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		_type = type;
 	}
 
@@ -233,6 +233,6 @@ public class PersistedVitaminSoap implements Serializable {
 	private String _articleId;
 	private String _description;
 	private String _name;
-	private String _type;
+	private int _type;
 
 }

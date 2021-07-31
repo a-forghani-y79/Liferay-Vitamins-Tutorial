@@ -114,7 +114,7 @@ public class VitaminDetailWrapper
 			setModifiedDate(modifiedDate);
 		}
 
-		String type = (String)attributes.get("type");
+		Integer type = (Integer)attributes.get("type");
 
 		if (type != null) {
 			setType(type);
@@ -193,7 +193,7 @@ public class VitaminDetailWrapper
 	 * @return the type of this vitamin detail
 	 */
 	@Override
-	public String getType() {
+	public int getType() {
 		return model.getType();
 	}
 
@@ -328,7 +328,7 @@ public class VitaminDetailWrapper
 	 * @param type the type of this vitamin detail
 	 */
 	@Override
-	public void setType(String type) {
+	public void setType(int type) {
 		model.setType(type);
 	}
 

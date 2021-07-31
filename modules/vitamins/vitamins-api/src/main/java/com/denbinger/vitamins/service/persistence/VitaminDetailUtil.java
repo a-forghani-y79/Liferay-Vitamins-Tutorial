@@ -721,7 +721,7 @@ public class VitaminDetailUtil {
 	 * @return the matching vitamin details
 	 */
 	public static List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
+		long persistedVitaminId, int type) {
 
 		return getPersistence().findBypersistedVitaminIdType(
 			persistedVitaminId, type);
@@ -741,7 +741,7 @@ public class VitaminDetailUtil {
 	 * @return the range of matching vitamin details
 	 */
 	public static List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end) {
+		long persistedVitaminId, int type, int start, int end) {
 
 		return getPersistence().findBypersistedVitaminIdType(
 			persistedVitaminId, type, start, end);
@@ -762,7 +762,7 @@ public class VitaminDetailUtil {
 	 * @return the ordered range of matching vitamin details
 	 */
 	public static List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		return getPersistence().findBypersistedVitaminIdType(
@@ -785,7 +785,7 @@ public class VitaminDetailUtil {
 	 * @return the ordered range of matching vitamin details
 	 */
 	public static List<VitaminDetail> findBypersistedVitaminIdType(
-		long persistedVitaminId, String type, int start, int end,
+		long persistedVitaminId, int type, int start, int end,
 		OrderByComparator<VitaminDetail> orderByComparator,
 		boolean useFinderCache) {
 
@@ -804,7 +804,7 @@ public class VitaminDetailUtil {
 	 * @throws NoSuchVitaminDetailException if a matching vitamin detail could not be found
 	 */
 	public static VitaminDetail findBypersistedVitaminIdType_First(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws com.denbinger.vitamins.exception.NoSuchVitaminDetailException {
 
@@ -821,7 +821,7 @@ public class VitaminDetailUtil {
 	 * @return the first matching vitamin detail, or <code>null</code> if a matching vitamin detail could not be found
 	 */
 	public static VitaminDetail fetchBypersistedVitaminIdType_First(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		return getPersistence().fetchBypersistedVitaminIdType_First(
@@ -838,7 +838,7 @@ public class VitaminDetailUtil {
 	 * @throws NoSuchVitaminDetailException if a matching vitamin detail could not be found
 	 */
 	public static VitaminDetail findBypersistedVitaminIdType_Last(
-			long persistedVitaminId, String type,
+			long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws com.denbinger.vitamins.exception.NoSuchVitaminDetailException {
 
@@ -855,7 +855,7 @@ public class VitaminDetailUtil {
 	 * @return the last matching vitamin detail, or <code>null</code> if a matching vitamin detail could not be found
 	 */
 	public static VitaminDetail fetchBypersistedVitaminIdType_Last(
-		long persistedVitaminId, String type,
+		long persistedVitaminId, int type,
 		OrderByComparator<VitaminDetail> orderByComparator) {
 
 		return getPersistence().fetchBypersistedVitaminIdType_Last(
@@ -873,7 +873,7 @@ public class VitaminDetailUtil {
 	 * @throws NoSuchVitaminDetailException if a vitamin detail with the primary key could not be found
 	 */
 	public static VitaminDetail[] findBypersistedVitaminIdType_PrevAndNext(
-			long vitaminDetailId, long persistedVitaminId, String type,
+			long vitaminDetailId, long persistedVitaminId, int type,
 			OrderByComparator<VitaminDetail> orderByComparator)
 		throws com.denbinger.vitamins.exception.NoSuchVitaminDetailException {
 
@@ -888,7 +888,7 @@ public class VitaminDetailUtil {
 	 * @param type the type
 	 */
 	public static void removeBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
+		long persistedVitaminId, int type) {
 
 		getPersistence().removeBypersistedVitaminIdType(
 			persistedVitaminId, type);
@@ -902,7 +902,7 @@ public class VitaminDetailUtil {
 	 * @return the number of matching vitamin details
 	 */
 	public static int countBypersistedVitaminIdType(
-		long persistedVitaminId, String type) {
+		long persistedVitaminId, int type) {
 
 		return getPersistence().countBypersistedVitaminIdType(
 			persistedVitaminId, type);
