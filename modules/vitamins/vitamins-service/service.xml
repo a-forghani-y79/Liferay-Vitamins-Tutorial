@@ -1,14 +1,14 @@
-<?xml version="1.0"?>
-<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+<?xml version="1.0"?><!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN"
+	"http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
 
 <service-builder dependency-injector="ds" package-path="com.denbinger.vitamins">
 	<namespace>FOO</namespace>
-	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
-	<entity local-service="true" name="Foo" remote-service="true" uuid="true">
+	<entity local-service="true" name="PersistedVitamin" remote-service="true" uuid="true">
 
 		<!-- PK fields -->
 
-		<column name="fooId" primary="true" type="long" />
+		<column name="persistedVitaminId" primary="true" type="long" />
+		<column name="surrogateId" type="String" />
 
 		<!-- Group instance -->
 
@@ -24,27 +24,54 @@
 
 		<!-- Other fields -->
 
-		<column name="field1" type="String" />
-		<column name="field2" type="boolean" />
-		<column name="field3" type="int" />
-		<column name="field4" type="Date" />
-		<column name="field5" type="String" />
+		<column name="groupName" type="String" />
+		<column name="articleId" type="String" />
+		<column name="description" type="String" />
+		<column name="name" type="String" />
+		<column name="type" type="String" />
 
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="field1" />
+			<order-column name="name" />
 		</order>
 
 		<!-- Finder methods -->
 
-		<finder name="Field2" return-type="Collection">
-			<finder-column name="field2" />
+		<finder name="SurrogateId" return-type="PersistedVitamin">
+			<finder-column name="surrogateId" />
 		</finder>
+		<finder name="Name" return-type="PersistedVitamin">
+			<finder-column name="name" />
+		</finder>
+	</entity>
 
-		<!-- References -->
+	<entity name="VitaminDetail" local-service="true" remote-service="true" uuid="true">
 
-		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
-		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+		<column name="vitaminDetailId" primary="true" type="long" />
+		<column name="persistedVitaminId" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<column name="type" type="String" />
+		<column name="value" type="String" />
+
+		<finder name="PersistedVitaminId" return-type="Collection">
+			<finder-column name="persistedVitaminId" />
+		</finder>
+		<finder name="persistedVitaminIdType" return-type="Collection">
+			<finder-column name="persistedVitaminId" />
+			<finder-column name="type" />
+		</finder>
 	</entity>
 </service-builder>

@@ -485,7 +485,129 @@ File -> new -> Liferay Module
 ```
 <div dir="rtl">
 در بخش شماتیک های کامپوننت ها در headless
-  مشاهده کردید که هر ویتامین دارای نام (name)،  
+  مشاهده کردید که هر ویتامین دارای نام (name)، آیدی (id
+  )، نام های شیمیای (chemicalNames
+  ) و ... می باشد. و همچنین ویتامین نیز خود بر یه نوع ویتامین(Vitamin
+  )، مینرال (Mineral) و دیگر(Other) می باشد.
+  <br>
+  در این قسمت برای ذخیره سازی این داده ها در دیتابیس و برای جلوگیری از زیاد شدن تعداد جدول ها، به صورت دیاگرام زیر عمل می کنیم.
+  <br>
+    
 </div>
 
 ![image Sain_Vitamins_ERD](Sain_Vitamins_ERD.png)
+
+<div dir="rtl">
+<h2>
+نوشتن فایل service.xml
+</h2>
+همانطور که از پروژه ی guestbook  به ساد دارید، service builder
+  برای ساخت کلاس های مورد نیاز، از فایل service.xml  در زیر ماژول service
+   (در اینجا vitamins-service) استفاده می کند.
+   <br>
+   ستون های جدول persistedVitamin مطابق نمودار ER خواهد بود.
+   <br>
+مرتب سازی داده ها بهتر است به صورت صعودی و بر اساس نام باشد.
+<br>
+برای دسترسی به داده های persistedVitamin به دو finder
+  نیاز داریم. که اولی براساس آیدی جایگزین (surrogateId
+  ) و دیگری بر اساس نام(name) باشد.
+  <br>
+  تا این مرحله، فایل service.xml  به صورت زیر می باشد. 
+</div>
+
+```xml
+<?xml version="1.0"?><!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN"
+    "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.denbinger.vitamins">
+    <namespace>FOO</namespace>
+    <entity local-service="true" name="PersistedVitamin" remote-service="true" uuid="true">
+
+        <!-- PK fields -->
+
+        <column name="persistedVitaminId" primary="true" type="long" />
+        <column name="surrogateId" type="String" />
+
+        <!-- Group instance -->
+
+        <column name="groupId" type="long" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <!-- Other fields -->
+
+        <column name="groupName" type="String" />
+        <column name="articleId" type="String" />
+        <column name="description" type="String" />
+        <column name="name" type="String" />
+        <column name="type" type="String" />
+
+        <!-- Order -->
+
+        <order by="asc">
+            <order-column name="name" />
+        </order>
+
+        <!-- Finder methods -->
+
+        <finder name="SurrogateId" return-type="PersistedVitamin">
+            <finder-column name="surrogateId" />
+        </finder>
+        <finder name="Name" return-type="PersistedVitamin">
+            <finder-column name="name" />
+        </finder>
+    </entity>
+```
+
+<div dir="rtl">
+در ادامه نوبت به تعریف جدول VitaminDetail
+  می رسد. که مطابق نمودار تعریف خواهد شد.
+  <br>
+  برای دسترسی به داده های هر ویتامین (chemicalNames , properties
+   , risks ,...) نیز دو finder
+    بر اساس ستون persistedVitaminId و بر اساس persistedVitainId و type
+      لازم داریم.<br>
+      کد های زیر را به ادامه ی service.xml
+        اضافه می کنیم و برای زیر ماژول vitamins-service
+        ، از گریدل، buildService را اجرا می کنیم.
+</div>
+
+```xml
+  <entity name="VitaminDetail" local-service="true" remote-service="true" uuid="true">
+
+        <column name="vitaminDetailId" primary="true" type="long" />
+        <column name="persistedVitaminId" type="long" />
+
+        <!-- Group instance -->
+
+        <column name="groupId" type="long" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+
+        <column name="type" type="String" />
+        <column name="value" type="String" />
+
+        <finder name="PersistedVitaminId" return-type="Collection">
+            <finder-column name="persistedVitaminId" />
+        </finder>
+        <finder name="persistedVitaminIdType" return-type="Collection">
+            <finder-column name="persistedVitaminId" />
+            <finder-column name="type" />
+        </finder>
+    </entity>
+</service-builder>
+```
+
