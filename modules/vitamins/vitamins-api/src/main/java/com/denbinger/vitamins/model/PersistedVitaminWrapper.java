@@ -148,6 +148,11 @@ public class PersistedVitaminWrapper
 		}
 	}
 
+	@Override
+	public java.util.List<VitaminDetail> getAllVitaminDetails() {
+		return model.getAllVitaminDetails();
+	}
+
 	/**
 	 * Returns the article ID of this persisted vitamin.
 	 *
@@ -156,6 +161,26 @@ public class PersistedVitaminWrapper
 	@Override
 	public String getArticleId() {
 		return model.getArticleId();
+	}
+
+	/**
+	 * getAttributes: Returns the list of attribute details.
+	 *
+	 * @return List
+	 */
+	@Override
+	public java.util.List<VitaminDetail> getAttributes() {
+		return model.getAttributes();
+	}
+
+	/**
+	 * getChemicalNames: Returns the list of chemical name details.
+	 *
+	 * @return List
+	 */
+	@Override
+	public java.util.List<VitaminDetail> getChemicalNames() {
+		return model.getChemicalNames();
 	}
 
 	/**
@@ -249,6 +274,26 @@ public class PersistedVitaminWrapper
 	}
 
 	/**
+	 * getProperties: Returns the list of property details.
+	 *
+	 * @return List
+	 */
+	@Override
+	public java.util.List<VitaminDetail> getProperties() {
+		return model.getProperties();
+	}
+
+	/**
+	 * getRisks: Returns the list of risk details.
+	 *
+	 * @return List
+	 */
+	@Override
+	public java.util.List<VitaminDetail> getRisks() {
+		return model.getRisks();
+	}
+
+	/**
 	 * Returns the surrogate ID of this persisted vitamin.
 	 *
 	 * @return the surrogate ID of this persisted vitamin
@@ -256,6 +301,16 @@ public class PersistedVitaminWrapper
 	@Override
 	public String getSurrogateId() {
 		return model.getSurrogateId();
+	}
+
+	/**
+	 * getSymptoms: Returns the list of symptom details.
+	 *
+	 * @return List
+	 */
+	@Override
+	public java.util.List<VitaminDetail> getSymptoms() {
+		return model.getSymptoms();
 	}
 
 	/**

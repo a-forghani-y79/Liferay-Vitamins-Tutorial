@@ -59,4 +59,41 @@ public interface PersistedVitamin
 
 		};
 
+	public java.util.List<VitaminDetail> getAllVitaminDetails();
+
+	/**
+	 * getSymptoms: Returns the list of symptom details.
+	 *
+	 * @return List
+	 */
+	public java.util.List<VitaminDetail> getSymptoms();
+
+	/**
+	 * getAttributes: Returns the list of attribute details.
+	 *
+	 * @return List
+	 */
+	public java.util.List<VitaminDetail> getAttributes();
+
+	/**
+	 * getProperties: Returns the list of property details.
+	 *
+	 * @return List
+	 */
+	public java.util.List<VitaminDetail> getProperties();
+
+	/**
+	 * getChemicalNames: Returns the list of chemical name details.
+	 *
+	 * @return List
+	 */
+	public java.util.List<VitaminDetail> getChemicalNames();
+
+	/**
+	 * getRisks: Returns the list of risk details.
+	 *
+	 * @return List
+	 */
+	public java.util.List<VitaminDetail> getRisks();
+
 }

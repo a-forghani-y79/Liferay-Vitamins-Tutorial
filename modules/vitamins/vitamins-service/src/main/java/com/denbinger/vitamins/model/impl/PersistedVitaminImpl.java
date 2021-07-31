@@ -14,6 +14,12 @@
 
 package com.denbinger.vitamins.model.impl;
 
+import com.denbinger.vitamins.constants.VitaminDetailType;
+import com.denbinger.vitamins.model.VitaminDetail;
+import com.denbinger.vitamins.service.VitaminDetailLocalServiceUtil;
+
+import java.util.List;
+
 /**
  * The extended model implementation for the PersistedVitamin service. Represents a row in the &quot;FOO_PersistedVitamin&quot; database table, with each column mapped to a property of this class.
  *
@@ -31,6 +37,57 @@ public class PersistedVitaminImpl extends PersistedVitaminBaseImpl {
 	 * Never reference this class directly. All methods that expect a persisted vitamin model instance should use the {@link com.denbinger.vitamins.model.PersistedVitamin} interface instead.
 	 */
 	public PersistedVitaminImpl() {
+	}
+	public List<VitaminDetail> getAllVitaminDetails() {
+		return VitaminDetailLocalServiceUtil.
+				getAllVitaminDetails(getPersistedVitaminId());
+	}
+
+	/**
+	 * getSymptoms: Returns the list of symptom details.
+	 * @return List
+	 */
+	public List<VitaminDetail> getSymptoms() {
+		return VitaminDetailLocalServiceUtil.
+				getVitaminDetailsByType(getPersistedVitaminId(),
+						VitaminDetailType.SYMPTOM);
+	}
+	/**
+	 * getAttributes: Returns the list of attribute details.
+	 * @return List
+	 */
+	public List<VitaminDetail> getAttributes() {
+		return VitaminDetailLocalServiceUtil.
+				getVitaminDetailsByType(getPersistedVitaminId(),
+						VitaminDetailType.ATTRIBUTE);
+	}
+	/**
+	 * getProperties: Returns the list of property details.
+	 * @return List
+	 */
+	public List<VitaminDetail> getProperties() {
+		return VitaminDetailLocalServiceUtil.
+				getVitaminDetailsByType(getPersistedVitaminId(),
+						VitaminDetailType.PROPERTY);
+	}
+	/**
+	 * getChemicalNames: Returns the list of chemical name details.
+	 * @return List
+	 */
+	public List<VitaminDetail> getChemicalNames() {
+		return VitaminDetailLocalServiceUtil.
+				getVitaminDetailsByType(getPersistedVitaminId(),
+						VitaminDetailType.CHEMICAL_NAME);
+	}
+
+	/**
+	 * getRisks: Returns the list of risk details.
+	 * @return List
+	 */
+	public List<VitaminDetail> getRisks() {
+		return VitaminDetailLocalServiceUtil.
+				getVitaminDetailsByType(getPersistedVitaminId(),
+						VitaminDetailType.RISK);
 	}
 
 }
