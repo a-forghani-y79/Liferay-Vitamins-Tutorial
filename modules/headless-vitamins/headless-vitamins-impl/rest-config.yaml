@@ -1,5 +1,5 @@
 apiDir: "../headless-vitamins-api/src/main/java"
-apiPackagePath: "com.denbinger.vitamins"
+apiPackagePath: "com.denbinger.headless.vitamins"
 application:
     baseURI: "/headless-vitamins"
     className: "HeadlessVitaminsApplication"
