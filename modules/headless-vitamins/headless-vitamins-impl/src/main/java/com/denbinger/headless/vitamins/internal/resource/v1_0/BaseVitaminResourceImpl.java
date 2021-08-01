@@ -477,14 +477,6 @@ public abstract class BaseVitaminResourceImpl
 			ownerId, permissionName, siteId, contextUriInfo);
 	}
 
-	protected Map<String, String> addAction(
-		String actionName, Long id, String methodName,
-		ModelResourcePermission modelResourcePermission) {
-
-		return ActionUtil.addAction(
-			actionName, getClass(), id, methodName, contextScopeChecker,
-			modelResourcePermission, contextUriInfo);
-	}
 
 	protected Map<String, String> addAction(
 		String actionName, String methodName, String permissionName,
