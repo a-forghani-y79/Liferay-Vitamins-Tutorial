@@ -192,6 +192,23 @@ public class PersistedVitaminServiceSoap {
 		}
 	}
 
+	public static com.denbinger.vitamins.model.PersistedVitaminSoap[] getAll()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.denbinger.vitamins.model.PersistedVitamin>
+				returnValue = PersistedVitaminServiceUtil.getAll();
+
+			return com.denbinger.vitamins.model.PersistedVitaminSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(
 		PersistedVitaminServiceSoap.class);
 

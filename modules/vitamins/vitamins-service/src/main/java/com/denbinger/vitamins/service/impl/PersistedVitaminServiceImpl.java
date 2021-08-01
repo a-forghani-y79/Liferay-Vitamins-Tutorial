@@ -31,6 +31,8 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * The implementation of the persisted vitamin remote service.
  *
@@ -172,6 +174,10 @@ public class PersistedVitaminServiceImpl
                 ActionKeys.DELETE);
 
         persistedVitaminLocalService.deleteVitamin(surrogateId);
+    }
+
+    public List<PersistedVitamin> getAll(){
+        return persistedVitaminPersistence.findAll();
     }
 
     private static final Logger _log =

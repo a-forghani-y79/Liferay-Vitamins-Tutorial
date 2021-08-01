@@ -1,4 +1,4 @@
-package com.denbinger.vitamins.internal.security.permission.resource.v1_0;
+package com.denbinger.vitamins.internal.resource.v1_0;
 
 import com.denbinger.vitamins.dto.v1_0.Vitamin;
 import com.denbinger.vitamins.resource.v1_0.VitaminResource;

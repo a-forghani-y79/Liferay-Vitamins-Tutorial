@@ -18,6 +18,8 @@ import com.denbinger.vitamins.model.PersistedVitamin;
 
 import com.liferay.portal.kernel.exception.PortalException;
 
+import java.util.List;
+
 /**
  * Provides the remote service utility for PersistedVitamin. This utility wraps
  * <code>com.denbinger.vitamins.service.impl.PersistedVitaminServiceImpl</code> and is an
@@ -55,6 +57,10 @@ public class PersistedVitaminServiceUtil {
 		throws PortalException {
 
 		getService().deletePersistedVitamin(surrogateId);
+	}
+
+	public static List<PersistedVitamin> getAll() {
+		return getService().getAll();
 	}
 
 	/**

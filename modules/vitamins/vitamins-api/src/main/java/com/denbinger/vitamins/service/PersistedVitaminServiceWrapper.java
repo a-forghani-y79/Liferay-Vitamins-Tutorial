@@ -55,6 +55,13 @@ public class PersistedVitaminServiceWrapper
 		_persistedVitaminService.deletePersistedVitamin(surrogateId);
 	}
 
+	@Override
+	public java.util.List<com.denbinger.vitamins.model.PersistedVitamin>
+		getAll() {
+
+		return _persistedVitaminService.getAll();
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *

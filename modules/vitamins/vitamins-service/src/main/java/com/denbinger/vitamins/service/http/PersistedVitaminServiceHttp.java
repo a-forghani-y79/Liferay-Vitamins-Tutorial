@@ -310,6 +310,38 @@ public class PersistedVitaminServiceHttp {
 		}
 	}
 
+	public static java.util.List<com.denbinger.vitamins.model.PersistedVitamin>
+		getAll(HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				PersistedVitaminServiceUtil.class, "getAll",
+				_getAllParameterTypes6);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List
+				<com.denbinger.vitamins.model.PersistedVitamin>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
 	private static Log _log = LogFactoryUtil.getLog(
 		PersistedVitaminServiceHttp.class);
 
@@ -340,5 +372,6 @@ public class PersistedVitaminServiceHttp {
 		};
 	private static final Class<?>[] _deletePersistedVitaminParameterTypes5 =
 		new Class[] {String.class};
+	private static final Class<?>[] _getAllParameterTypes6 = new Class[] {};
 
 }
