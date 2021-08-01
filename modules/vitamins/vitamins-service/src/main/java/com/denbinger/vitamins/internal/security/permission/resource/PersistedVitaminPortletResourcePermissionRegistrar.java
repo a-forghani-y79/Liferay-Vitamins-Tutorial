@@ -1,4 +1,4 @@
-package com.denbinger.vitamins.internal.resource;
+package com.denbinger.vitamins.internal.security.permission.resource;
 
 
 import com.denbinger.vitamins.constants.VitaminConstants;

@@ -1,4 +1,4 @@
-package com.denbinger.vitamins.internal.resource.v1_0;
+package com.denbinger.vitamins.internal.security.permission.resource.v1_0;
 
 import com.liferay.portal.vulcan.resource.OpenAPIResource;
 
