@@ -1,33 +1,15 @@
 package com.denbinger.headless.vitamins.client.http;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-
+import javax.annotation.Generated;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Logger;
-
-import javax.annotation.Generated;
 
 /**
  * @author jinos

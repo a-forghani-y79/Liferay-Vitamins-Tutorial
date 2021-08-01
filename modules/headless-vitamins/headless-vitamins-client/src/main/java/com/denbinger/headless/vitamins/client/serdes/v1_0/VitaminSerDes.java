@@ -3,13 +3,8 @@ package com.denbinger.headless.vitamins.client.serdes.v1_0;
 import com.denbinger.headless.vitamins.client.dto.v1_0.Vitamin;
 import com.denbinger.headless.vitamins.client.json.BaseJSONParser;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeMap;
-
 import javax.annotation.Generated;
+import java.util.*;
 
 /**
  * @author jinos

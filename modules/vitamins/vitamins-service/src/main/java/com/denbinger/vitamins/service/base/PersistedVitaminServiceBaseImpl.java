@@ -19,7 +19,6 @@ import com.denbinger.vitamins.service.PersistedVitaminService;
 import com.denbinger.vitamins.service.PersistedVitaminServiceUtil;
 import com.denbinger.vitamins.service.persistence.PersistedVitaminPersistence;
 import com.denbinger.vitamins.service.persistence.VitaminDetailPersistence;
-
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
@@ -29,13 +28,11 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiService;
 import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.util.PortalUtil;
-
-import java.lang.reflect.Field;
-
-import javax.sql.DataSource;
-
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
+
+import javax.sql.DataSource;
+import java.lang.reflect.Field;
 
 /**
  * Provides the base implementation for the persisted vitamin remote service.

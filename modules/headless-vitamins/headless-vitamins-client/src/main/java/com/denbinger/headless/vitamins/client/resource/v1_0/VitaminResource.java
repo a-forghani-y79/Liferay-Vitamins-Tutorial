@@ -7,13 +7,12 @@ import com.denbinger.headless.vitamins.client.pagination.Pagination;
 import com.denbinger.headless.vitamins.client.problem.Problem;
 import com.denbinger.headless.vitamins.client.serdes.v1_0.VitaminSerDes;
 
+import javax.annotation.Generated;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javax.annotation.Generated;
 
 /**
  * @author jinos

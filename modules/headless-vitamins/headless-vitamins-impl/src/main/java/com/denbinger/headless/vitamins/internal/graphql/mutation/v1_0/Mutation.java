@@ -2,7 +2,6 @@ package com.denbinger.headless.vitamins.internal.graphql.mutation.v1_0;
 
 import com.denbinger.headless.vitamins.dto.v1_0.Vitamin;
 import com.denbinger.headless.vitamins.resource.v1_0.VitaminResource;
-
 import com.liferay.petra.function.UnsafeConsumer;
 import com.liferay.petra.function.UnsafeFunction;
 import com.liferay.portal.kernel.search.Sort;
@@ -11,18 +10,14 @@ import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.vulcan.accept.language.AcceptLanguage;
 import com.liferay.portal.vulcan.graphql.annotation.GraphQLField;
 import com.liferay.portal.vulcan.graphql.annotation.GraphQLName;
-
-import java.util.function.BiFunction;
+import org.osgi.service.component.ComponentServiceObjects;
 
 import javax.annotation.Generated;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-
-import org.osgi.service.component.ComponentServiceObjects;
+import java.util.function.BiFunction;
 
 /**
  * @author jinos

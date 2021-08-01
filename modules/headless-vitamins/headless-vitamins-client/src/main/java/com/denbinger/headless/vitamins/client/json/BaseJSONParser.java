@@ -1,18 +1,11 @@
 package com.denbinger.headless.vitamins.client.json;
 
+import javax.annotation.Generated;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Stream;
-
-import javax.annotation.Generated;
 
 /**
  * @author jinos

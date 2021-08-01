@@ -15,7 +15,6 @@
 package com.denbinger.vitamins.service.http;
 
 import com.denbinger.vitamins.service.PersistedVitaminServiceUtil;
-
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.HttpPrincipal;

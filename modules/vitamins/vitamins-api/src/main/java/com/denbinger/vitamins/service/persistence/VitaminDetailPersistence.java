@@ -16,9 +16,7 @@ package com.denbinger.vitamins.service.persistence;
 
 import com.denbinger.vitamins.exception.NoSuchVitaminDetailException;
 import com.denbinger.vitamins.model.VitaminDetail;
-
 import com.liferay.portal.kernel.service.persistence.BasePersistence;
-
 import org.osgi.annotation.versioning.ProviderType;
 
 /**

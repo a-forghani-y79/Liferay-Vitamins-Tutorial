@@ -3,11 +3,9 @@ package com.denbinger.headless.vitamins.client.dto.v1_0;
 import com.denbinger.headless.vitamins.client.function.UnsafeSupplier;
 import com.denbinger.headless.vitamins.client.serdes.v1_0.VitaminSerDes;
 
-import java.io.Serializable;
-
-import java.util.Objects;
-
 import javax.annotation.Generated;
+import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * @author jinos

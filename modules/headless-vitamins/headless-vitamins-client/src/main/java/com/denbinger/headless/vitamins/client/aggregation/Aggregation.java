@@ -1,9 +1,8 @@
 package com.denbinger.headless.vitamins.client.aggregation;
 
+import javax.annotation.Generated;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Generated;
 
 /**
  * @author jinos

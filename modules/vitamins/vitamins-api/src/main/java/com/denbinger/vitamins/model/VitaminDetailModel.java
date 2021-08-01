@@ -19,10 +19,9 @@ import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.GroupedModel;
 import com.liferay.portal.kernel.model.ShardedModel;
 import com.liferay.portal.kernel.model.StagedAuditedModel;
+import org.osgi.annotation.versioning.ProviderType;
 
 import java.util.Date;
-
-import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The base model interface for the VitaminDetail service. Represents a row in the &quot;FOO_VitaminDetail&quot; database table, with each column mapped to a property of this class.

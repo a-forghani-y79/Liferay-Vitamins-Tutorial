@@ -1,7 +1,6 @@
 package com.denbinger.headless.vitamins.resource.v1_0;
 
 import com.denbinger.headless.vitamins.dto.v1_0.Vitamin;
-
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.search.filter.Filter;
 import com.liferay.portal.kernel.service.GroupLocalService;
@@ -9,18 +8,14 @@ import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.vulcan.accept.language.AcceptLanguage;
 import com.liferay.portal.vulcan.pagination.Page;
 import com.liferay.portal.vulcan.pagination.Pagination;
-
-import java.util.Locale;
+import org.osgi.annotation.versioning.ProviderType;
 
 import javax.annotation.Generated;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-
-import org.osgi.annotation.versioning.ProviderType;
+import java.util.Locale;
 
 /**
  * To access this resource, run:

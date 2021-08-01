@@ -1,10 +1,9 @@
 package com.denbinger.headless.vitamins.internal.jaxrs.application;
 
-import javax.annotation.Generated;
-
-import javax.ws.rs.core.Application;
-
 import org.osgi.service.component.annotations.Component;
+
+import javax.annotation.Generated;
+import javax.ws.rs.core.Application;
 
 /**
  * @author jinos

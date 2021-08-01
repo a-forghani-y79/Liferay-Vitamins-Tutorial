@@ -2,9 +2,8 @@ package com.denbinger.headless.vitamins.client.permission;
 
 import com.denbinger.headless.vitamins.client.json.BaseJSONParser;
 
-import java.util.Objects;
-
 import javax.annotation.Generated;
+import java.util.Objects;
 
 /**
  * @author jinos

@@ -15,7 +15,6 @@
 package com.denbinger.vitamins.service;
 
 import com.denbinger.vitamins.model.VitaminDetail;
-
 import com.liferay.portal.kernel.exception.PortalException;
 
 import java.util.List;

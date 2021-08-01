@@ -1,13 +1,12 @@
 package com.denbinger.headless.vitamins.internal.resource.v1_0;
 
-import com.denbinger.vitamins.constants.PersistedVitaminType;
 import com.denbinger.headless.vitamins.dto.v1_0.Vitamin;
 import com.denbinger.headless.vitamins.internal.odata.entity.v1_0.VitaminEntityModel;
 import com.denbinger.headless.vitamins.internal.util.CreatorUtil;
+import com.denbinger.headless.vitamins.resource.v1_0.VitaminResource;
+import com.denbinger.vitamins.constants.PersistedVitaminType;
 import com.denbinger.vitamins.model.PersistedVitamin;
 import com.denbinger.vitamins.model.VitaminDetail;
-import com.denbinger.headless.vitamins.resource.v1_0.VitaminResource;
-
 import com.denbinger.vitamins.service.PersistedVitaminService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.search.Sort;
